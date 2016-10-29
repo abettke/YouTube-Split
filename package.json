@@ -1,0 +1,17 @@
+{
+  "name": "youtube-split",
+  "version": "1.0.0",
+  "description": "Grabs youtube videos uploaded as soundtracks, downloads the video, splits the video into individual tracks, and returns the collection of track available for download.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "ffmpeg": "0.0.4",
+    "youtube-dl": "^1.11.1"
+  }
+}
