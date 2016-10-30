@@ -1,30 +1,28 @@
-let fs = require('fs');
-let youtubedl = require('youtube-dl');
+var fs = require('fs');
+var youtubedl = require('youtube-dl');
+var YouTubeSplit = require('../youtubeSplit.ctrl.js');
 
 exports.getYouTubeVideo = function(url){
 	return new Promise( (resolve,reject)=>{
-		let video = '';
+		let videoSource = '';
 		let readableVideo = youtubedl(url,
 			 ['--format=18'],
 			 {maxBuffer: 1000*1024}
 		);
 
 		readableVideo.on('info', (info)=>{
-			//readableVideo.pipe(fs.createWriteStream(info.title+'.mp4'));
-			resolve({status:'YouTube-DL Started'});
 			console.log('YouTube-DL Started');
+			video = './tmp/'+Date.now().toString()+'.mp4';
+			readableVideo.pipe(fs.createWriteStream(video));
 		});
 
 		readableVideo.on('error', (error)=>{
 			reject(error);
 		});
 
-		readableVideo.on('data', (data)=>{
-			video += data;
-		});
-
 		readableVideo.on('end', ()=>{
-			console.log('YouTube-DL Finished.');
+			console.log('YouTube-DL Complete');
+			resolve(video);
 		});
 	});
 	
