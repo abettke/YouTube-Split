@@ -2,7 +2,7 @@ var YouTubeSplit = require('../controllers/youtubeSplit.ctrl.js');
 
 module.exports = function(app){
 
-	app.get('/tracks/:jobId', YouTubeSplit.getJobById);
+	app.get('/tracks/:jobId', YouTubeSplit.getTracksByJobId);
 	app.post('/split', YouTubeSplit.splitRequest);
 
 	//All other routes point to index

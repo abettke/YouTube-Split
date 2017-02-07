@@ -1,5 +1,6 @@
 #
 ./tmp/*
+yarn.lock
 
 # Dependency directories
 node_modules
@@ -22,3 +23,4 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+.bowerrc

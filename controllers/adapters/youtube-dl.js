@@ -1,6 +1,7 @@
-var fs = require('fs');
-var youtubedl = require('youtube-dl');
-var YouTubeSplit = require('../youtubeSplit.ctrl.js');
+const fs = require('fs');
+const youtubedl = require('youtube-dl');
+const YouTubeSplit = require('../youtubeSplit.ctrl.js');
+const uuidV4 = require('uuid/v4');
 
 exports.getYouTubeVideo = function(url){
 	return new Promise( (resolve,reject)=>{
@@ -12,7 +13,7 @@ exports.getYouTubeVideo = function(url){
 
 		readableVideo.on('info', (info)=>{
 			console.log('YouTube-DL Started');
-			video = './tmp/'+Date.now().toString()+'.mp4';
+			video = `./tmp/${uuidV4()}.mp4`;
 			readableVideo.pipe(fs.createWriteStream(video));
 		});
 

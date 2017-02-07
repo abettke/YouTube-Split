@@ -1,0 +1,18 @@
+{
+  "name": "youtube-split",
+  "description": "Grabs youtube videos uploaded as soundtracks, downloads the video, splits the video into individual tracks, and returns the collection of track available for download.",
+  "main": "index.js",
+  "authors": [
+    "andrew <abettke@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bodhisattva082915/YouTube-Split",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
